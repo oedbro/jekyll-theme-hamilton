@@ -6,9 +6,11 @@ The original purpose of this theme is to be a replacement of the default Jekyll 
 
 Please check out the [demo](https://ngzhio.github.io/jekyll-theme-hamilton/).
 
-| Daylight | Sunrise/Sunset | Midnight |
-| --- | --- | --- |
-| ![screenshot](screenshot.png) | ![screenshot](screenshot-sunrise.png) | ![screenshot](screenshot-midnight.png)
+| Skins | Displays |
+| ----- | -------- |
+| Daylight | ![screenshot](screenshot.png) |
+| Sunrise/Sunset | ![screenshot](screenshot-sunrise.png) |
+| Midnight | ![screenshot](screenshot-midnight.png) |
 
 ## Features <!-- omit in toc -->
 
@@ -19,6 +21,7 @@ Please check out the [demo](https://ngzhio.github.io/jekyll-theme-hamilton/).
 - [MathJax](https://www.mathjax.org/)
 - [Disqus](https://disqus.com/)
 - [Font Awesome](https://fontawesome.com/)
+- TOC
 - Customizable head
 - Configurable page navigation
 - Customizable styles and skins
@@ -31,6 +34,7 @@ Please check out the [demo](https://ngzhio.github.io/jekyll-theme-hamilton/).
   - [Optional Parameters](#optional-parameters)
 - [Archive Pages](#archive-pages)
 - [MathJax](#mathjax)
+- [TOC](#toc)
 - [Customization](#customization)
   - [Metadata](#metadata)
   - [Navigation](#navigation)
@@ -82,6 +86,7 @@ After installation, you can run `jekyll serve` to check out your site, but befor
 | `author`   | string | The name of the author of the site; It would be showed in the copyright statement. |
 | `avatar`   | string | The avatar of the author of the site. |
 | `email`    | string | The email of the author of the site. |
+| `location` | string | The current living location of the author of the site. |
 | `skin`     | string | The skin name. See more information on the [Customization](#customization) section. |
 | `lang`     | string | The language of the site; The default value is `en`. |
 | `paginate` | int    | The number of posts on each page. |
@@ -114,6 +119,10 @@ layout: archive-years
 ## MathJax
 
 You can enable MathJax on each post or page, just set `math: true` on that page.
+
+## TOC
+
+If you want to show the Table of Contents of a post or page on the left sidebar, just set `toc: true` on that page.
 
 ## Customization
 

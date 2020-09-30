@@ -181,11 +181,11 @@
  */
 .site-body {
   display: grid;
-  grid-template-columns: calc(#{$content-width} * 0.22) 1fr;
+  grid-template-columns: calc(#{$content-width} * 0.24) 1fr;
   overflow: hidden;
 
   @include media-query($on-medium) {
-    grid-template-columns: calc(#{$content-width} * 0.15) 1fr;
+    grid-template-columns: calc(#{$content-width} * 0.18) 1fr;
   }
 
   @include media-query($on-small) {
@@ -238,10 +238,16 @@
   text-align: left;
 }
 
-.contact-list {
+ul.contact-list {
   list-style: none;
   margin-left: 0;
   margin-bottom: 0;
+
+  li {
+    overflow: hidden; 
+    white-space: nowrap; 
+    text-overflow: ellipsis; 
+  }
 }
 
 ul.social-icons {
@@ -256,9 +262,58 @@ ul.social-icons {
 }
 
 .author-avatar {
-  width: $base-font-size * 9;
+  width: $base-font-size * 8;
   height: auto;
   border-radius: 50%;
+}
+
+.toc-title {
+  text-align: center;
+  font-weight: bold;
+  border: 1px solid;
+  border-radius: 0.3em 0.3em 0 0;
+  padding: 0.5rem;
+  margin: 0;
+}
+
+.toc-nav {
+  max-height: 70vh;
+  overflow-y: scroll;
+  border: 1px solid;
+  border-top: 0px;
+  border-radius: 0 0 0.3em 0.3em;
+
+  -webkit-hyphens: auto;
+      -ms-hyphens: auto;
+          hyphens: auto;
+
+  ul {
+    margin: 0;
+    padding: 0;
+  }
+
+  a {
+    display: block;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+  ul {
+    list-style: none;
+
+    li a {
+      font-weight: bold;
+      border-bottom: 1px solid;
+      padding: 0.5rem;
+    }
+  }
+
+  li ul li a {
+    font-weight: normal;
+    padding-left: 1.25rem;
+  }
 }
 
 /**
@@ -299,6 +354,7 @@ ul.social-icons {
 }
 
 .post-list {
+  font-family: $headline-font-family;
   margin-left: 0;
   padding-left: 0;
   list-style: none;
@@ -403,15 +459,43 @@ ul.post-categories {
 
 .post-pagination {
   @include relative-font-size(0.8);
-  display: flex;
-  justify-content: space-between;
+  clear: both;
   padding-top: $spacing-unit / 2;
   padding-bottom: $spacing-unit / 2;
   border-top: 1px solid;
 
-  .post-previous
+  @media screen and (min-width: $on-small) {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+
+  .post-previous,
   .post-next {
     display: block;
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    text-decoration: none;
+  }
+
+  .post-next {
+    margin-top: $spacing-unit / 2;
+
+    @media screen and (min-width: $on-small) {
+      margin-top: 0;
+      text-align: right;
+    }
+  }
+
+  .post-pagination-label {
+    margin: 0;
+    padding: 0;
+  }
+
+  .post-pagination-title {
+    margin: 0;
+    padding: 0;
   }
 }
 
@@ -419,8 +503,8 @@ ul.post-categories {
 // About font sizes for h1-h6, refer to https://stackoverflow.com/a/6140504/13261366
 .post-title,
 .post-content h1 {
-  font-family: $display-font-family;
   @include relative-font-size(1.8);
+  font-family: $headline-font-family;
   font-weight: bold;
   letter-spacing: -1px;
   line-height: $base-line-height * $base-font-size * 2;
@@ -435,12 +519,12 @@ ul.post-categories {
   margin-bottom: $spacing-unit;
 
   h2, h3, h4, h5, h6 {
-    font-family: $base-font-family;
+    font-family: $headline-font-family;
   }
 
-  h2     { margin-top: $spacing-unit * 2 }
-  h3, h4 { margin-top: $spacing-unit * 1.5 }
-  h5, h6 { margin-top: $spacing-unit }
+  h2         { margin-top: $spacing-unit * 2 }
+  h3         { margin-top: $spacing-unit * 1.5 }
+  h4, h5, h6 { margin-top: $spacing-unit }
 
   h2 {
     @include relative-font-size(1.4);
@@ -464,6 +548,19 @@ ul.post-categories {
 
   h6 {
     @include relative-font-size(0.75);
+  }
+
+  li {
+    margin-bottom: $spacing-unit / 3;
+
+    > ul,
+    > ol {
+      margin-top: $spacing-unit / 3;
+    }
+
+    p, blockquote, pre, figure, iframe, %vertical-rhythm {
+      margin-bottom: $spacing-unit / 3;
+    }
   }
 }
 

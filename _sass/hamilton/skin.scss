@@ -164,3 +164,22 @@ ul.post-tags {
     color: $subscribe-color;
   }
 }
+
+.toc-title {
+  color: $background-color;
+  background-color: $border-color-dark;
+  border-color: $border-color;
+}
+
+.toc-nav {
+  border-color: $border-color;
+
+  ul li a {
+    color: $text-color;
+    border-color: $border-color;
+
+    &:hover {
+      background-color: $border-color-light;
+    }
+  }
+}
